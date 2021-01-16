@@ -47,6 +47,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      ;; git
      ;;helm
+     c-c++ 
      ivy
      lsp
      ;; markdown
