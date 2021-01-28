@@ -32,25 +32,30 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(javascript
+   '(
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     html
+     yaml
+     typescript
 (go :variables go-tab-width 4)
 (go :variables go-format-before-save t)
 (go :variables gofmt-command "goimports")
 (go :variables go-use-golangci-lint t)
-      auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      ;; git
+     c-c++
+     react 
+     vue
      ;;helm
-     c-c++ 
      ivy
      lsp
-     ;; markdown
+     markdown
      multiple-cursors
      ;; org
      ;; (shell :variables
@@ -257,6 +262,7 @@ spacemacs-dark
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
+   ;;dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
     dotspacemacs-mode-line-theme '(vim-powerline :separator wave :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
@@ -267,7 +273,7 @@ spacemacs-dark
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 15.0
+                               :size 14.0
                                :weight normal
                                :width normal)
 
@@ -339,7 +345,7 @@ spacemacs-dark
 
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.1
+   dotspacemacs-which-key-delay 0.4
 
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
@@ -361,7 +367,7 @@ spacemacs-dark
 
    ;; If non-nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup nil 
+   dotspacemacs-fullscreen-at-startup nil
 
    ;; If non-nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
@@ -425,8 +431,7 @@ spacemacs-dark
 
    ;; Code folding method. Possible values are `evil', `origami' and `vimish'.
    ;; (default 'evil)
-   ;;dotspacemacs-folding-method 'evil
-   dotspacemacs-folding-method 'vimish
+   dotspacemacs-folding-method 'evil
 
    ;; If non-nil `smartparens-strict-mode' will be enabled in programming modes.
    ;; (default nil)
@@ -552,7 +557,6 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-;(add-hook 'before-save-hook 'gofmt-before-save)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -569,8 +573,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
-   (quote
-    (web-beautify tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode htmlize simple-httpd helm-gtags helm helm-core ggtags dap-mode bui counsel-gtags add-node-modules-path doom-modeline shrink-path yasnippet-snippets ws-butler writeroom-mode winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection spaceline-all-the-icons smex restart-emacs request rainbow-delimiters popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless move-text macrostep lsp-ui lsp-treemacs lsp-origami lsp-ivy lorem-ipsum link-hint ivy-yasnippet ivy-xref ivy-purpose ivy-hydra ivy-avy indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make google-translate golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc fuzzy font-lock+ flycheck-pos-tip flycheck-package flycheck-elsa flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav editorconfig dumb-jump dotenv-mode dired-quick-sort diminish devdocs define-word counsel-projectile company-go column-enforce-mode clean-aindent-mode centered-cursor-mode auto-yasnippet auto-highlight-symbol auto-compile async aggressive-indent ace-link ac-ispell))))
+   '(typescript-mode import-js grizzl add-node-modules-path yasnippet-snippets yaml-mode ws-butler writeroom-mode winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toxi-theme toc-org tao-theme tagedit symon symbol-overlay sublime-themes string-inflection spaceline-all-the-icons smex slim-mode scss-mode sass-mode reverse-theme restart-emacs rainbow-delimiters pug-mode prettier-js popwin pcre2el password-generator paradox overseer organic-green-theme org-superstar open-junk-file occidental-theme nodejs-repl neotree nameless move-text monokai-theme macrostep lsp-ui lsp-treemacs lsp-origami lsp-ivy lorem-ipsum livid-mode link-hint json-navigator json-mode js2-refactor js-doc ivy-yasnippet ivy-xref ivy-rtags ivy-purpose ivy-hydra ivy-avy indent-guide impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hemisu-theme helm-make google-translate google-c-style golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc fuzzy font-lock+ flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-package flycheck-golangci-lint flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-cleverparens evil-args evil-anzu eval-sexp-fu emr emmet-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode django-theme disaster dired-quick-sort diminish devdocs define-word cyberpunk-theme cpp-auto-include counsel-projectile counsel-css company-ycmd company-web company-rtags company-go company-c-headers column-enforce-mode clean-aindent-mode centered-cursor-mode ccls badwolf-theme auto-yasnippet auto-highlight-symbol auto-compile async alect-themes aggressive-indent afternoon-theme ace-link ac-ispell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
